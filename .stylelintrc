@@ -1,0 +1,5 @@
+{
+ "processors": ["stylelint-processor-html"],
+ "extends": "stylelint-config-sass-guidelines",
+ "defaultSeverity": "warning"
+}
