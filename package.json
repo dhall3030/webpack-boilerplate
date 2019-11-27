@@ -23,6 +23,7 @@
     "cssnano": "^4.1.10",
     "eslint": "^6.2.1",
     "eslint-loader": "^2.2.1",
+    "expose-loader": "^0.7.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
@@ -41,5 +42,7 @@
     "webpack-md5-hash": "0.0.6",
     "webpack-node-externals": "^1.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }

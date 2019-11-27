@@ -13,6 +13,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const StylelintPlugin = require('stylelint-webpack-plugin')
 
+const webpack = require("webpack");
+
 module.exports = {
   entry: { main: './src/index.js' },
   output: {
@@ -45,10 +47,25 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ]
+      },
+      {
+        // Exposes jQuery for use outside Webpack build
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'jQuery'
+        },{
+          loader: 'expose-loader',
+          options: '$'
+        }]
       }
     ]
   },
-  plugins: [ 
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "style.[contenthash].css"
